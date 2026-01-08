@@ -1,0 +1,7 @@
+{
+  "name": "Neel Technologies - MCSE Solutions Architect",
+  "description": "Premium corporate landing page for MCSE Certification with 30% discount highlights and GSAP interactivity.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
