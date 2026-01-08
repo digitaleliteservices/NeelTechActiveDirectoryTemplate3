@@ -354,10 +354,18 @@ const Hero = () => {
                       <div className="px-4 py-2 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-full font-bold">
                         {slide.stat}
                       </div>
-                      <button className="group flex items-center space-x-2 text-blue-600 font-bold hover:text-blue-800 transition-colors">
+                      <button
+                        onClick={() => {
+                          document
+                            .getElementById("success-stories")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                        className="group flex items-center space-x-2 text-blue-600 font-bold hover:text-blue-800 transition-colors"
+                      >
                         <span>See Success Stories</span>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                       </button>
+
                     </div>
                   </div>
                   
@@ -475,8 +483,9 @@ const Hero = () => {
                   <div className="mt-4 flex items-center justify-between text-sm">
                     <span className="text-slate-600">Placement Probability: 92%</span>
                     <button className="group flex items-center space-x-1 text-blue-600 font-bold hover:text-blue-800">
-                      <span>Explore Path</span>
+                      {/* <span>Explore Path</span>
                       <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                     */}
                     </button>
                   </div>
                 </div>

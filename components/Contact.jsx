@@ -43,7 +43,7 @@ const Contact = () => {
 
            <div className="mt-16 flex items-center justify-center space-x-3 text-xs font-bold text-slate-500 uppercase tracking-widest relative z-10">
              <ShieldCheck size={18} className="text-[#F39200]" />
-             <span>ISO 9001:2015 Certified Center</span>
+             <span>ISO 9001:2020 Certified Center</span>
            </div>
         </div>
       </div>
