@@ -248,15 +248,15 @@ const Hero = () => {
         {/* Emotional Headline Section */}
         <div className="text-center mb-12">
          
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-50 to-cyan-50 px-6 py-3 rounded-full border border-blue-100 mb-8">
+          {/* <div className="inline-flex items-center  space-x-2 bg-gradient-to-r from-blue-50 to-cyan-50 px-6 py-3 rounded-full border border-blue-100 mb-8">
             <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
-            <span className="text-sm font-bold text-blue-700">#1 Rated Active Directory Program in India</span>
+            <span className="text-sm  font-bold text-blue-700">#1 Rated Active Directory Program in India</span>
             <div className="flex ml-2">
               {[1,2,3,4,5].map(i => (
                 <Star key={i} className="w-4 h-4 text-amber-500 fill-amber-500" />
               ))}
             </div>
-          </div>
+          </div> */}
 
           <div className="emotional-headline space-y-6 mb-12">
             <h1 className="text-5xl md:text-6xl lg:text-6xl font-black leading-tight">
