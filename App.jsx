@@ -17,6 +17,7 @@ import DiscountModal from './components/DiscountModal';
 import TopBanner from './components/TopBanner';
 import Schedule from './components/Schedule';
 import StickySocialLinks from './components/StickySocialLinks';
+import VideoSection from './components/videoSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -70,6 +71,7 @@ const App = () => {
       
       <main className={`relative z-10 transition-all duration-300 ${isBannerVisible ? 'mt-12' : 'mt-0'}`}>
         <Hero />
+        <VideoSection />
         <About />
         <WhyChooseUs />
         <Syllabus />
