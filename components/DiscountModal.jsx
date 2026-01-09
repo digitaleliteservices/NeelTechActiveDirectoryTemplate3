@@ -14,7 +14,7 @@ const DiscountModal = ({ onCloseComplete }) => {
     }, 1500);
 
     const DURATION = 5 * 60 * 60;
-    const STORAGE_KEY = 'mcse_deal_expiry';
+    const STORAGE_KEY = 'active_directory_infrastructure_deal_expiry';
     let expiry = localStorage.getItem(STORAGE_KEY);
     
     if (!expiry) {

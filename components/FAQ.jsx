@@ -6,11 +6,11 @@ const FAQ = () => {
 
   const faqs = [
     {
-      q: "What types of training formats does the MCSE course offer?",
+      q: "What types of training formats does the Active Directory Infrastructure cource offer?",
       a: "We provide flexible learning options including live instructor-led classes (both online and classroom), which allow you to engage directly with trainers and perform hands-on activities, as well as self-paced training through our LMS platform, where you can learn at your own convenience with access to recorded videos and study materials."
     },
     {
-      q:"Who benefits most from the self-paced MCSE training?",
+      q:"Who benefits most from the self-paced Active Directory Infrastructure training?",
       a:"Self-paced learning suits learners who need flexibility due to personal schedules, or those who prefer studying independently and at their own rhythm. This mode provides comprehensive resources, and if desired, you can still join live sessions later on."
     },
 
@@ -39,7 +39,7 @@ const FAQ = () => {
       a: "You retain access to the LMS content well beyond course completion, allowing you to revisit lectures, notes, and labs whenever you need to refresh your knowledge."
     },
     {
-      q: "How much does the MCSE certification exam cost, and what are the payment methods?",
+      q: "How much does the Active Directory Infrastructure certification exam cost, and what are the payment methods?",
       a: "Certification costs vary based on your region and testing center. For detailed pricing, please contact us directly or fill out an enquiry form. We accept multiple payment options including credit/debit cards, net banking, and UPI."
     },
     {
@@ -53,7 +53,7 @@ const FAQ = () => {
       <div className="max-w-3xl mx-auto px-4">
         <div className="text-center mb-16 reveal-on-scroll">
           <h2 className="text-4xl font-bold text-slate-900 mb-4 font-heading">Common Queries</h2>
-          <p className="text-slate-500">Everything you need to know about the MCSE program.</p>
+          <p className="text-slate-500">Everything you need to know about the Active Directory Infrastructure program.</p>
         </div>
 
         <div className="space-y-4">

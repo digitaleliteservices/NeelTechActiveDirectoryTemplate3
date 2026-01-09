@@ -16,10 +16,10 @@ const SuccessStories = () => {
       role: "Systems Administrator",
       company: "Infosys",
       text:
-        "The MCSE course at Neel Technologies changed my career path. The practical labs were incredibly detailed.",
+        "The Active Directory Infrastructure course at Neel Technologies changed my career path. The practical labs were incredibly detailed.",
       img: "https://picsum.photos/100/100?random=1",
       salary: "12 LPA",
-      course: "MCSE Certification",
+      course: "Active Directory Infrastructure",
     },
     {
       name: "Priya Venkatesh",
@@ -29,7 +29,7 @@ const SuccessStories = () => {
         "24/7 WhatsApp support helped me clear doubts instantly and transition into a cloud role.",
       img: "https://picsum.photos/100/100?random=2",
       salary: "18 LPA",
-      course: "AWS Solutions Architect",
+      course: "Active Directory Training",
     },
     {
       name: "Anand Kumar",

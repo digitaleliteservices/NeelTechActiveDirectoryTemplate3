@@ -94,7 +94,7 @@ const About = () => {
             </h2>
             
             <p className="text-lg text-slate-500 leading-relaxed mb-10 font-medium">
-              The MCSE Certification is the gold standard for IT professionals. At Neel Technologies, we go beyond the slides to give you practical, enterprise-grade architecture skills that span from physical servers to the hyper-scale cloud.
+              The Active Directory Infrastructure is the gold standard for IT professionals. At Neel Technologies, we go beyond the slides to give you practical, enterprise-grade architecture skills that span from physical servers to the hyper-scale cloud.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">

@@ -69,7 +69,7 @@ const TopBanner = ({ isVisible }) => {
           <div className="flex items-center space-x-2">
             <Zap size={14} className="text-[#F39200] fill-[#F39200]" />
             <p className="text-[11px] sm:text-xs font-black text-white tracking-tight">
-              FLASH SALE: <span className="text-[#F39200]">30% OFF</span> SOLUTIONS ARCHITECT COURSE
+              FLASH SALE: <span className="text-[#F39200]">30% OFF</span> ACTIVE DIRECTORY COURSE
             </p>
           </div>
         </div>

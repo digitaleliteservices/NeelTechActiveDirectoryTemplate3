@@ -77,7 +77,7 @@ const Pricing = () => {
               </div>
 
               <a href="https://wa.me/916361866299" target="_blank" rel="noopener noreferrer" className="w-full py-5 bg-[#005DAA] text-white font-black rounded-[24px] shadow-lg flex items-center justify-center space-x-3 group text-base no-underline hover:bg-[#004c8c] transition-colors">
-                <span>ENROL NOW</span>
+                <span>ENROLL NOW</span>
                 <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
             </div>

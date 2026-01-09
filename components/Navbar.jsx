@@ -21,7 +21,7 @@ const Navbar = ({ isBannerVisible = false }) => {
     { name: 'Syllabus', href: '#syllabus' },
     { name: 'Success Stories', href: '#success-stories' },
     { name: 'FAQs', href: '#faq' },
-  //   { name: 'Enrol Now', href: '#pricing' },
+    //  { name: 'Enroll Now', href: '#pricing' },
    ];
 
   const scrollToSection = (href) => {
@@ -80,10 +80,11 @@ const Navbar = ({ isBannerVisible = false }) => {
               </a>
             ))}
             <button
-              onClick={() => scrollToSection('#pricing')}
+              onClick={() =>
+                window.open("https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76")}
               className="bg-[#005DAA] text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-[0_15px_30px_rgba(0,93,170,0.2)] hover:bg-[#F39200] hover:shadow-[0_15px_30px_rgba(243,146,0,0.2)] transition-all transform hover:-translate-y-1 active:scale-95 outline-none border-none cursor-pointer"
             >
-              Enrol Now
+              Join Free Demo
             </button>
           </div>
 

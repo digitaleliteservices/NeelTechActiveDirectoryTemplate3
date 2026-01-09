@@ -250,7 +250,7 @@ const Hero = () => {
          
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-50 to-cyan-50 px-6 py-3 rounded-full border border-blue-100 mb-8">
             <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
-            <span className="text-sm font-bold text-blue-700">#1 Rated MCSE Program in India</span>
+            <span className="text-sm font-bold text-blue-700">#1 Rated Active Directory Program in India</span>
             <div className="flex ml-2">
               {[1,2,3,4,5].map(i => (
                 <Star key={i} className="w-4 h-4 text-amber-500 fill-amber-500" />
@@ -261,16 +261,16 @@ const Hero = () => {
           <div className="emotional-headline space-y-6 mb-12">
             <h1 className="text-5xl md:text-6xl lg:text-6xl font-black leading-tight">
               <span className="block bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
-                MCSE Training Certification Course 
+                Active Directory Training
               </span>
-              <span className="block bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600 bg-clip-text text-transparent mt-2">
+              {/* <span className="block bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600 bg-clip-text text-transparent mt-2">
                 for Solutions Architect
-              </span>
+              </span> */}
             </h1>
             
             <p className="text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed">
               Stop dreaming about a better career. Start building it. Join India's most 
-              <span className="font-bold text-blue-700"> intelligent MCSE training</span> that 
+              <span className="font-bold text-blue-700"> intelligent Active Directory Infrastructure</span> that 
               understands your ambitions.
             </p>
           </div>
@@ -625,7 +625,7 @@ const Hero = () => {
                   </div>
                 </div>
                 <a
-                  href="https://wa.me/916361866299?text=Hi%20I%20want%20to%20watch%20the%20demo%20video"
+                  href="https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full font-bold hover:shadow-lg transition-shadow"
