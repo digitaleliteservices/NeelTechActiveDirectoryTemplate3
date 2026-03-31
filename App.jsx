@@ -19,6 +19,7 @@ import Schedule from "./components/Schedule";
 import StickySocialLinks from "./components/StickySocialLinks";
 import VideoSection from "./components/videoSection";
 import { Routes, Route, Navigate } from "react-router-dom";
+import PaymentSuccess from "./components/PaymentSuccess";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +49,7 @@ const App = () => {
             start: "top 96%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
     });
 
@@ -127,6 +128,7 @@ const App = () => {
           </div>
         }
       />
+      <Route path="/payment-success" element={<PaymentSuccess />} />
     </Routes>
   );
 };

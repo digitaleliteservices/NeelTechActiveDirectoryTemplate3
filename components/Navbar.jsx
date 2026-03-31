@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import neelLogo from '../assets/neelLogo.png'
+import React, { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import neelLogo from "../assets/neelLogo.png";
 
 const Navbar = ({ isBannerVisible = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Why Choose Us?', href: '#why-choose-us' },
-    { name: 'Syllabus', href: '#syllabus' },
-    { name: 'Success Stories', href: '#success-stories' },
-    { name: 'FAQs', href: '#faq' },
+    { name: "Home", href: "#home" },
+    { name: "About Us", href: "#about" },
+    { name: "Why Choose Us?", href: "#why-choose-us" },
+    { name: "Syllabus", href: "#syllabus" },
+    { name: "Success Stories", href: "#success-stories" },
+    { name: "FAQs", href: "#faq" },
   ];
 
   const scrollToSection = (href) => {
@@ -34,7 +35,7 @@ const Navbar = ({ isBannerVisible = false }) => {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
     setIsOpen(false);
@@ -45,15 +46,51 @@ const Navbar = ({ isBannerVisible = false }) => {
     scrollToSection(href);
   };
 
+  const handlePayment = async () => {
+    if (loading) return;
+    setLoading(true);
+
+    try {
+      // https://api.neeltechnologies.com
+      const res = await fetch(
+        // "http://localhost:9000/api/active-dir/create-payment",
+        "https://api.neeltechnologies.com/api/active-dir/create-payment",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // body: JSON.stringify({ amount: 39 }),
+          body: JSON.stringify({}),
+        },
+      );
+
+      const data = await res.json();
+      console.log("data", data);
+
+      if (data?.redirectUrl) {
+        localStorage.setItem("orderId", data.orderId); // ✅ SAVE THIS
+        window.location.href = data.redirectUrl;
+      }
+    } catch (error) {
+      console.error("Payment error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <nav 
-      style={{ top: isBannerVisible ? '48px' : '0' }}
-      className={`fixed left-0  right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'}`}
+    <nav
+      style={{ top: isBannerVisible ? "48px" : "0" }}
+      className={`fixed left-0  right-0 z-50 transition-all duration-500 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-lg py-2" : "bg-transparent py-4"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo Section */}
-          <button onClick={() => scrollToSection('#home')} className="flex-shrink-0 flex items-center space-x-3 group outline-none border-none bg-transparent cursor-pointer">
+          <button
+            onClick={() => scrollToSection("#home")}
+            className="flex-shrink-0 flex items-center space-x-3 group outline-none border-none bg-transparent cursor-pointer"
+          >
             <img src={neelLogo} alt="Neel Logo" className="w-12 h-auto" />
           </button>
 
@@ -69,23 +106,55 @@ const Navbar = ({ isBannerVisible = false }) => {
                 {item.name}
               </a>
             ))}
-            <button
+            {/* <button
               onClick={() => window.open("https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76")}
               className="bg-[#005DAA] text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-[0_15px_30px_rgba(0,93,170,0.2)] hover:bg-[#F39200] hover:shadow-[0_15px_30px_rgba(243,146,0,0.2)] transition-all transform hover:-translate-y-1 active:scale-95 outline-none border-none cursor-pointer"
             >
               Join Free Demo
+            </button> */}
+            <button
+              // onClick={() =>
+              //   window.open("https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76")
+              // }
+              onClick={handlePayment}
+              className="bg-[#005DAA] text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-[0_15px_30px_rgba(0,93,170,0.2)] hover:bg-[#F39200] hover:shadow-[0_15px_30px_rgba(243,146,0,0.2)] transition-all transform hover:-translate-y-1 active:scale-95 outline-none border-none cursor-pointer"
+            >
+              <span className="flex items-center gap-3 justify-center">
+                <span className="text-white font-bold text-sm">Join Demo</span>
+                <span className="line-through text-white/70 text-xs">₹999</span>
+                <span className="text-yellow-300 text-base font-extrabold">
+                  ₹39
+                </span>
+              </span>
             </button>
           </div>
 
           {/* Mobile Button (Visible on small screens) */}
           <div className="flex lg:hidden items-center space-x-4">
-            <button
-              onClick={() => window.open("https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76")}
+            {/* <button
+              onClick={() =>
+                window.open("https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76")
+              }
               className="bg-[#005DAA] text-white px-4 py-2 rounded-xl font-black text-xs uppercase tracking-wider shadow-[0_10px_20px_rgba(0,93,170,0.2)] hover:bg-[#F39200] active:scale-95 transition-all outline-none border-none cursor-pointer whitespace-nowrap"
             >
               Join Free Demo
+            </button> */}
+            <button
+              // onClick={() =>
+              //   window.open("https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76")
+              // }
+              onClick={handlePayment}
+              className="bg-[#005DAA] text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-[0_15px_30px_rgba(0,93,170,0.2)] hover:bg-[#F39200] hover:shadow-[0_15px_30px_rgba(243,146,0,0.2)] transition-all transform hover:-translate-y-1 active:scale-95 outline-none border-none cursor-pointer"
+            >
+              <span className="flex items-center gap-3 justify-center">
+                <span className="text-white font-bold text-sm">Join Demo</span>
+                <span className="line-through text-white/70 text-xs">₹999</span>
+                <span className="text-yellow-300 text-base font-extrabold">
+                  ₹39
+                </span>
+              </span>
             </button>
-            
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-800 hover:text-[#005DAA] p-2 transition-colors focus:outline-none bg-transparent border-none cursor-pointer"
@@ -97,7 +166,9 @@ const Navbar = ({ isBannerVisible = false }) => {
       </div>
 
       {/* Mobile Menu Dropdown */}
-      <div className={`lg:hidden bg-white border-t border-slate-100 shadow-2xl absolute top-full left-0 right-0 transition-all duration-300 transform ${isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'}`}>
+      <div
+        className={`lg:hidden bg-white border-t border-slate-100 shadow-2xl absolute top-full left-0 right-0 transition-all duration-300 transform ${isOpen ? "opacity-100 translate-y-0 visible" : "opacity-0 -translate-y-4 invisible"}`}
+      >
         <div className="px-4 pt-4 pb-10 space-y-1">
           {navItems.map((item) => (
             <a
@@ -110,11 +181,28 @@ const Navbar = ({ isBannerVisible = false }) => {
             </a>
           ))}
           <div className="px-4 pt-4">
-            <button
-              onClick={() => window.open("https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76")}
+            {/* <button
+              onClick={() =>
+                window.open("https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76")
+              }
               className="w-full text-center bg-[#F39200] text-white px-4 py-4 rounded-xl font-black text-base shadow-lg active:scale-95 transition-all outline-none border-none cursor-pointer"
             >
               Join Free Demo
+            </button> */}
+            <button
+              // onClick={() =>
+              //   window.open("https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76")
+              // }
+              onClick={handlePayment}
+              className="bg-[#005DAA] text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-[0_15px_30px_rgba(0,93,170,0.2)] hover:bg-[#F39200] hover:shadow-[0_15px_30px_rgba(243,146,0,0.2)] transition-all transform hover:-translate-y-1 active:scale-95 outline-none border-none cursor-pointer"
+            >
+              <span className="flex items-center gap-3 justify-center">
+                <span className="text-white font-bold text-sm">Join Demo</span>
+                <span className="line-through text-white/70 text-xs">₹999</span>
+                <span className="text-yellow-300 text-base font-extrabold">
+                  ₹39
+                </span>
+              </span>
             </button>
           </div>
         </div>
