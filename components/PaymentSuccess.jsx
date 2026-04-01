@@ -63,15 +63,17 @@ const PaymentSuccess = () => {
 
       if (!orderId) {
         setStatus("Invalid payment ❌");
+        setTimeout(() => {
+          window.location.href = "/active-directory";
+        }, 2000);
         return;
       }
 
-      // ⏳ WAIT (VERY IMPORTANT)
+      // ⏳ wait before checking
       await new Promise((res) => setTimeout(res, 3000));
 
       try {
         const res = await fetch(
-          //`http://localhost:9000/api/active-dir/verify-payment?orderId=${orderId}`,
           `https://api.neeltechnologies.com/api/active-dir/verify-payment?orderId=${orderId}`,
         );
 
@@ -79,18 +81,45 @@ const PaymentSuccess = () => {
 
         console.log("VERIFY RESPONSE:", data);
 
+        // ✅ SUCCESS
         if (data.status === "COMPLETED") {
           setStatus("Payment Successful ✅");
 
-          // OPTIONAL: redirect to WhatsApp
-          window.location.href =
-            "https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76";
-        } else {
-          setStatus("Payment Pending ⏳ (please wait...)");
+          localStorage.removeItem("orderId");
+
+          setTimeout(() => {
+            window.location.href =
+              "https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76";
+          }, 1500);
+
+          return;
         }
+
+        // ❌ FAILED / CANCELLED
+        if (data.status === "FAILED") {
+          setStatus("Payment Failed or Cancelled ❌");
+
+          localStorage.removeItem("orderId");
+
+          setTimeout(() => {
+            window.location.href = "/active-directory";
+          }, 2000);
+
+          return;
+        }
+
+        // ⏳ STILL PENDING
+        setStatus("Payment Pending ⏳ (please wait...)");
+
+        // 🔁 retry after 2 sec
+        setTimeout(verify, 2000);
       } catch (err) {
         console.error(err);
-        setStatus("Error verifying payment");
+        setStatus("Error verifying payment ❌");
+
+        setTimeout(() => {
+          window.location.href = "/active-directory";
+        }, 2000);
       }
     };
 
