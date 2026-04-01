@@ -336,7 +336,7 @@ const Hero = () => {
 
           <div className="emotional-headline space-y-6 mb-12">
             <h1 className="text-5xl md:text-6xl lg:text-6xl font-black leading-tight">
-              <span className="block bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r mt-14 md:mt-12 from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
                 Active Directory Training
               </span>
               {/* <span className="block bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600 bg-clip-text text-transparent mt-2">

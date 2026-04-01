@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
+import neelLogo from "../assets/neelLogo.png";
 import {
   X,
   Sparkles,
@@ -173,21 +174,29 @@ const DiscountModal = ({ onCloseComplete }) => {
           style={{ width: `${(timeLeft / (5 * 3600)) * 100}%` }}
         />
 
-        <button
+        
+        <div className="flex flex-row items-center justify-start space-x-4 md:space-x-8 p-6">
+         <img src={neelLogo} alt="Neel Technologies" className=" w-[85px] -mt-2 " />
+          <div className="inline-flex items-center space-x-2 mt-2 mb-4 bg-[#F39200]/10 px-4 py-1.5 rounded-full text-[#F39200]">
+              <Sparkles size={14} fill="currentColor" />
+              <span className="text-[9px] font-black uppercase tracking-[0.3em]">
+                Surprise Offer
+              </span>
+            {/* </div> */}
+          </div>
+          <button
           onClick={handleClose}
           className="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-900 hover:bg-slate-200 transition-all z-30 border-none cursor-pointer"
         >
           <X size={18} />
         </button>
+        </div>
 
-        <div className="p-8 sm:p-10 text-center relative z-10 flex flex-col items-center">
-          <div className="inline-flex items-center space-x-2 bg-[#F39200]/10 px-4 py-1.5 rounded-full text-[#F39200] mb-6">
-            <Sparkles size={14} fill="currentColor" />
-            <span className="text-[9px] font-black uppercase tracking-[0.3em]">
-              Surprise Offer
-            </span>
-          </div>
+        <div className="p-8  sm:p-5 text-center relative z-10 flex flex-col items-center">
+         {/* <div className='flex flex-row justify-between items-center mb-4' style={{justifyContent: 'space-between', gap: '100px'}}> */}
+           
 
+           
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-2 tracking-tighter leading-tight">
             Unlock Your <span className="text-[#005DAA]">Tech Future</span>
           </h2>
@@ -250,7 +259,7 @@ const DiscountModal = ({ onCloseComplete }) => {
           >
             <div className="flex items-center gap-2">
               <span className="uppercase tracking-widest">
-                Join Demo at ₹39
+                Join 2 days Workshop at ₹39
               </span>
               <span className="line-through text-slate-400 text-sm">₹999</span>
             </div>
