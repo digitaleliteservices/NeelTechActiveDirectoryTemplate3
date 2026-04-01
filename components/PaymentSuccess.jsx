@@ -1,51 +1,103 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
+
+// const PaymentSuccess = () => {
+//   useEffect(() => {
+//     const verify = async () => {
+//       const orderId = localStorage.getItem("orderId");
+
+//       if (!orderId) {
+//         alert("Invalid payment");
+//         window.location.href = "/active-directory";
+//         return;
+//       }
+
+//       for (let i = 0; i < 5; i++) {
+//         const res = await fetch(
+//             `http://localhost:9000/api/active-dir/verify-payment?orderId=${orderId}`,
+//         //   `https://api.neeltechnologies.com/api/active-dir/verify-payment?orderId=${orderId}`,
+//         );
+
+//         const data = await res.json();
+
+//         // ✅ SUCCESS
+//         if (data.status === "COMPLETED") {
+//           localStorage.removeItem("orderId");
+//           window.location.href =
+//             "https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76";
+//           return;
+//         }
+
+//         // ❌ FAILED
+//         if (data.status === "FAILED") {
+//           localStorage.removeItem("orderId");
+//           alert("Payment failed or cancelled ❌");
+//           window.location.href = "/active-directory";
+//           return;
+//         }
+
+//         await new Promise((r) => setTimeout(r, 2000));
+//       }
+
+//       alert("Payment not confirmed yet. Please try again.");
+//       window.location.href = "/active-directory";
+//     };
+
+//     verify();
+//   }, []);
+
+//   return <h2>Verifying payment...</h2>;
+// };
+
+// export default PaymentSuccess;
+
+import { useEffect, useState } from "react";
 
 const PaymentSuccess = () => {
+  const [status, setStatus] = useState("Checking payment...");
+
   useEffect(() => {
     const verify = async () => {
       const orderId = localStorage.getItem("orderId");
 
+      console.log("ORDER ID:", orderId);
+
       if (!orderId) {
-        alert("Invalid payment");
-        window.location.href = "/active-directory";
+        setStatus("Invalid payment ❌");
         return;
       }
 
-      for (let i = 0; i < 5; i++) {
+      // ⏳ WAIT (VERY IMPORTANT)
+      await new Promise((res) => setTimeout(res, 3000));
+
+      try {
         const res = await fetch(
-          //   `http://localhost:9000/api/active-dir/verify-payment?orderId=${orderId}`,
+          //`http://localhost:9000/api/active-dir/verify-payment?orderId=${orderId}`,
           `https://api.neeltechnologies.com/api/active-dir/verify-payment?orderId=${orderId}`,
         );
 
         const data = await res.json();
 
-        // ✅ SUCCESS
+        console.log("VERIFY RESPONSE:", data);
+
         if (data.status === "COMPLETED") {
-          localStorage.removeItem("orderId");
+          setStatus("Payment Successful ✅");
+
+          // OPTIONAL: redirect to WhatsApp
           window.location.href =
-            "https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76";
-          return;
+            "https://wa.me/916361866299?text=I%20have%20completed%20payment";
+        } else {
+          setStatus("Payment Pending ⏳ (please wait...)");
         }
-
-        // ❌ FAILED
-        if (data.status === "FAILED") {
-          localStorage.removeItem("orderId");
-          alert("Payment failed or cancelled ❌");
-          window.location.href = "/active-directory";
-          return;
-        }
-
-        await new Promise((r) => setTimeout(r, 2000));
+      } catch (err) {
+        console.error(err);
+        setStatus("Error verifying payment");
       }
-
-      alert("Payment not confirmed yet. Please try again.");
-      window.location.href = "/active-directory";
     };
 
     verify();
   }, []);
 
-  return <h2>Verifying payment...</h2>;
+  return <h1>{status}</h1>;
 };
 
 export default PaymentSuccess;
