@@ -84,7 +84,7 @@ const PaymentSuccess = () => {
 
           // OPTIONAL: redirect to WhatsApp
           window.location.href =
-            "https://wa.me/916361866299?text=I%20have%20completed%20payment";
+            "https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76";
         } else {
           setStatus("Payment Pending ⏳ (please wait...)");
         }
