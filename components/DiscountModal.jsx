@@ -259,7 +259,7 @@ const DiscountModal = ({ onCloseComplete }) => {
           >
             <div className="flex items-center gap-2">
               <span className="uppercase tracking-widest">
-                Join 2 days Workshop at ₹39
+                Join Two Days Workshop at ₹39
               </span>
               <span className="line-through text-slate-400 text-sm">₹999</span>
             </div>

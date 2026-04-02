@@ -120,7 +120,7 @@ const Navbar = ({ isBannerVisible = false }) => {
               className="bg-[#005DAA] text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-[0_15px_30px_rgba(0,93,170,0.2)] hover:bg-[#F39200] hover:shadow-[0_15px_30px_rgba(243,146,0,0.2)] transition-all transform hover:-translate-y-1 active:scale-95 outline-none border-none cursor-pointer"
             >
               <span className="flex items-center gap-3 justify-center">
-                <span className="text-white font-bold text-sm">Join 2 days Workshop</span>
+                <span className="text-white font-bold text-sm">Join Two Days Workshop</span>
                 <span className="line-through text-white/70 text-xs">₹999</span>
                 <span className="text-yellow-300 text-base font-extrabold hover:text-blue-900">
                   ₹39
@@ -144,14 +144,16 @@ const Navbar = ({ isBannerVisible = false }) => {
               //   window.open("https://chat.whatsapp.com/I0yVSOKX6DRIfMsvlcBN76")
               // }
               onClick={handlePayment}
-              className="bg-[#005DAA] text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-[0_15px_30px_rgba(0,93,170,0.2)] hover:bg-[#F39200] hover:shadow-[0_15px_30px_rgba(243,146,0,0.2)] transition-all transform hover:-translate-y-1 active:scale-95 outline-none border-none cursor-pointer"
+              className="bg-[#005DAA] text-white px-4 py-1 rounded-2xl font-black text-xs uppercase tracking-widest shadow-[0_15px_30px_rgba(0,93,170,0.2)] hover:bg-[#F39200] hover:shadow-[0_15px_30px_rgba(243,146,0,0.2)] transition-all transform hover:-translate-y-1 active:scale-95 outline-none border-none cursor-pointer"
             >
-              <span className="flex items-center gap-3 justify-center">
-                <span className="text-white font-bold text-sm">Join 2 days Workshop</span>
+              <span className="flex flex-col items-center justify-center">
+                <span className="text-white font-extrabold text-[10px]">Join Two Days Workshop</span>
+                <div className='flex flex-row items-center gap-2'>
                 <span className="line-through text-white/70 text-xs">₹999</span>
                 <span className="text-yellow-300 text-base font-extrabold hover:text-blue-900">
                   ₹39
                 </span>
+                </div>
               </span>
             </button>
 
@@ -197,7 +199,7 @@ const Navbar = ({ isBannerVisible = false }) => {
               className="bg-[#005DAA] text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest shadow-[0_15px_30px_rgba(0,93,170,0.2)] hover:bg-[#F39200] hover:shadow-[0_15px_30px_rgba(243,146,0,0.2)] transition-all transform hover:-translate-y-1 active:scale-95 outline-none border-none cursor-pointer"
             >
               <span className="flex items-center gap-3 justify-center">
-                <span className="text-white font-bold text-sm">Join 2 days Workshop</span>
+                <span className="text-white font-bold text-sm">Join Two Days Workshop</span>
                 <span className="line-through text-white/70 text-xs">₹999</span>
                 <span className="text-yellow-300 text-base font-extrabold hover:text-blue-900">
                   ₹39
